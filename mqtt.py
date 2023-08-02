@@ -17,7 +17,7 @@ class MQTTClient(simple.MQTTClient):
     def publish(self, topic, msg: str):
         while True:
             try:
-                return super().publish(topic, msg.encode(), retain=False, qos=1)
+                return super().publish(topic, msg.encode())
             except OSError:
                 pass
             self.safe_connect()

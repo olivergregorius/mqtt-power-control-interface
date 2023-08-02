@@ -1,7 +1,7 @@
 from machine import Pin
 
 
-class WifiSettings:
+class WifiConfig:
     ssid: str
     passphrase: str
 
@@ -10,7 +10,7 @@ class WifiSettings:
         self.passphrase = passphrase
 
 
-class MQTTSettings:
+class MQTTConfig:
     host: str
     port: int
     username: str

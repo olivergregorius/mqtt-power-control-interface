@@ -2,7 +2,7 @@ import machine
 import mip
 import network
 import utime
-from settings import wifi_settings, led_pin
+from config import wifi_config, led_pin
 
 
 pin_led = machine.Pin(led_pin, machine.Pin.OUT)
@@ -23,12 +23,12 @@ def blink(led: machine.Pin, count: int, on_duration_ms=1000, off_duration_ms=100
 def wifi_connect() -> None:
     interface = network.WLAN(network.STA_IF)
     if not interface.isconnected():
-        print(f'Connecting to Wifi {wifi_settings.ssid}')
+        print(f'Connecting to Wifi {wifi_config.ssid}')
         interface.active(True)
-        interface.connect(wifi_settings.ssid, wifi_settings.passphrase)
+        interface.connect(wifi_config.ssid, wifi_config.passphrase)
         while not interface.isconnected():
             pass
-    print(f'Connected to Wifi {wifi_settings.ssid}, connection information:')
+    print(f'Connected to Wifi {wifi_config.ssid}, connection information:')
     print(interface.ifconfig())
     blink(pin_led, 3, 500, 500)
 

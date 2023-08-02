@@ -1,4 +1,4 @@
-from types import Device, WifiSettings, MQTTSettings
+from types import Device, WifiConfig, MQTTConfig
 
 # Misc
 led_pin = 'LED'
@@ -6,7 +6,7 @@ led_pin = 'LED'
 # Wifi settings
 wifi_ssid = 'SSID'
 wifi_passphrase = 'abcdef'
-wifi_settings = WifiSettings(wifi_ssid, wifi_passphrase)
+wifi_config = WifiConfig(wifi_ssid, wifi_passphrase)
 
 # MQTT settings
 mqtt_host = 'mqtt.example.org'
@@ -15,7 +15,7 @@ mqtt_user = 'power-control'
 mqtt_password = 'fedcba'
 mqtt_topic_power_control = b'powercontrol/control'
 mqtt_topic_power_status = b'powercontrol/status'
-mqtt_settings = MQTTSettings(mqtt_host, mqtt_port, mqtt_user, mqtt_password, mqtt_topic_power_control, mqtt_topic_power_status)
+mqtt_config = MQTTConfig(mqtt_host, mqtt_port, mqtt_user, mqtt_password, mqtt_topic_power_control, mqtt_topic_power_status)
 
 # Controlled devices
 devices = [

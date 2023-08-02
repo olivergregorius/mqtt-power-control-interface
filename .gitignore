@@ -40,5 +40,4 @@ out/
 /*.egg-info
 MANIFEST
 
-
-settings.py
+config.py
