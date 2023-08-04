@@ -31,6 +31,7 @@ mqtt.safe_connect()
 mqtt.subscribe(mqtt_config.topic_pwr_control)
 triggered_devices = []
 iterations = 0
+print('Started mqtt-power-control-interface')
 
 # main
 while True:
@@ -46,5 +47,7 @@ while True:
                 mqtt.publish(topic=mqtt_config.topic_pwr_status, msg=f'{{"deviceName": "{device.name}", "status": "{pwr_state}"}}')
                 iterations = 0
         utime.sleep(1)
+    except KeyboardInterrupt:
+        exit(1)
     except:
         pass

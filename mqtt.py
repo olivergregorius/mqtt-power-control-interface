@@ -10,7 +10,7 @@ class MQTTClient(simple.MQTTClient):
             except:
                 pass
             try:
-                return super().connect(False)
+                return super().connect()
             except OSError:
                 utime.sleep(2)
 
