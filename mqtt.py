@@ -29,4 +29,7 @@ class MQTTClient(simple.MQTTClient):
         super().set_callback(function)
 
     def check_msg(self):
-        super().check_msg()
+        try:
+            super().check_msg()
+        except OSError:
+            self.safe_connect()
