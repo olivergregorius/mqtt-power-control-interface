@@ -70,8 +70,8 @@ The power state for each device can be controlled by sending a dedicated message
 }
 ```
 
-The `action` attribute can take the values `powerOn` and `powerOff`, whereas both of the actions trigger a 500 millisecond power button push, regardless of the
-current state of the device.
+The `action` attribute can take the values `powerOn` and `powerOff`, whereas for now both of the actions trigger a 500 millisecond power button push, regardless
+of the current state of the device.
 
 ## Disclaimer
 
