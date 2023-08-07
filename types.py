@@ -15,15 +15,15 @@ class MQTTConfig:
     port: int
     username: str
     password: str
-    topic_pwr_status: str
+    topic_pwr_state: str
     topic_pwr_control: str
 
-    def __init__(self, host, port, username, password, topic_pwr_status, topic_pwr_control):
+    def __init__(self, host, port, username, password, topic_pwr_state, topic_pwr_control):
         self.host = host
         self.port = port
         self.username = username
         self.password = password
-        self.topic_pwr_status = topic_pwr_status
+        self.topic_pwr_state = topic_pwr_state
         self.topic_pwr_control = topic_pwr_control
 
 

@@ -44,7 +44,7 @@ while True:
             for device in devices:
                 pwr_state = 'running' if device.pwr_led_pin.value() == 0 else 'stopped'
                 print(f'Determined power state for device {device.name}: {pwr_state}')
-                mqtt.publish(topic=mqtt_config.topic_pwr_status, msg=f'{{"deviceName": "{device.name}", "status": "{pwr_state}"}}')
+                mqtt.publish(topic=mqtt_config.topic_pwr_state, msg=f'{{"deviceName": "{device.name}", "state": "{pwr_state}"}}')
                 iterations = 0
         utime.sleep(1)
     except KeyboardInterrupt:
