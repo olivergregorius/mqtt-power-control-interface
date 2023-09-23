@@ -30,7 +30,9 @@ This project is written in Micropython and can be flashed onto various microcont
 
 ### Required Libraries
 
-- umqtt.simple (automatically installed via `boot.py`)
+- umqtt.simple
+- micropython_ota (see [https://github.com/olivergregorius/micropython_ota](https://github.com/olivergregorius/micropython_ota))
+- micropython_loki (see [https://github.com/olivergregorius/micropython_loki](https://github.com/olivergregorius/micropython_loki))
 
 ### Required Files
 
@@ -39,6 +41,7 @@ The following files are required to be flashed onto the microcontroller:
 - `boot.py` - Bootup script containing routines for establishing WiFi connection and installing required libraries
 - `mqtt.py` - MQTT client library
 - `types.py` - Utility file containing type definitions
+- `utils.py` - Utility file containing utility methods
 - `main.py` - Main routine
 - `config.py` - Config file, see `config.template.py` as reference, the keys are self explanatory
 

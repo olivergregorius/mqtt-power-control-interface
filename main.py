@@ -32,25 +32,6 @@ def blink(count: int, on_duration_ms=1000, off_duration_ms=1000) -> None:
         utime.sleep_ms(off_duration_ms)
 
 
-def msg_callback(topic, msg):
-    global triggered_devices
-    msg_json = ujson.loads(msg.decode())
-    loki.log(f'Received message: {msg_json}')
-    device_name = msg_json['deviceName']
-    matching_device = [device for device in devices if device.name == device_name]
-    if not matching_device:
-        loki.log(f'No matching device with name {device_name} could be found')
-        return
-    triggered_devices.extend(matching_device)
-
-
-def push_pwr_button(device: Device) -> None:
-    loki.log(f'Pushing power button for device {device.name}')
-    device.pwr_btn_pin.value(1)
-    utime.sleep_ms(500)
-    device.pwr_btn_pin.value(0)
-
-
 def ntp_update(current_time: int) -> None:
     global last_ntp_update
     attempts = 0
@@ -77,6 +58,25 @@ def push_logs(current_time: int) -> None:
     global last_loki_push_logs
     last_loki_push_logs = current_time
     loki.push_logs()
+
+
+def msg_callback(topic, msg):
+    global triggered_devices
+    msg_json = ujson.loads(msg.decode())
+    loki.log(f'Received message: {msg_json}')
+    device_name = msg_json['deviceName']
+    matching_device = [device for device in devices if device.name == device_name]
+    if not matching_device:
+        loki.log(f'No matching device with name {device_name} could be found')
+        return
+    triggered_devices.extend(matching_device)
+
+
+def push_pwr_button(device: Device) -> None:
+    loki.log(f'Pushing power button for device {device.name}')
+    device.pwr_btn_pin.value(1)
+    utime.sleep_ms(500)
+    device.pwr_btn_pin.value(0)
 
 
 # main
