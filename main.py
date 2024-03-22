@@ -88,7 +88,7 @@ last_ota_update = current_time
 last_ntp_update = current_time
 loki = Loki(loki_config.url, loki_config.labels, max_stack_size=loki_config.max_stack_size, min_push_log_level=loki_config.min_push_log_level)
 loki.log('Starting mqtt-power-control-interface')
-mqtt = MQTTClient(client_id=mqtt_config.username, server=mqtt_config.host, port=mqtt_config.port, user=mqtt_config.username, password=mqtt_config.password)
+mqtt = MQTTClient(client_id=mqtt_config.client_id, server=mqtt_config.host, port=mqtt_config.port, user=mqtt_config.username, password=mqtt_config.password)
 mqtt.set_callback(msg_callback)
 mqtt.safe_connect()
 mqtt.subscribe(mqtt_config.topic_pwr_control)

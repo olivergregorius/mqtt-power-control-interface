@@ -30,11 +30,12 @@ ota_config = OTAConfig(ota_url, ota_project, ota_files, ota_interval_s)
 # MQTT config
 mqtt_host = 'mqtt.example.org'
 mqtt_port = 1883
+mqtt_client_id = 'power-control'
 mqtt_user = 'power-control'
 mqtt_password = 'fedcba'
 mqtt_topic_power_state = b'powercontrol/state'
 mqtt_topic_power_control = b'powercontrol/control'
-mqtt_config = MQTTConfig(mqtt_host, mqtt_port, mqtt_user, mqtt_password, mqtt_topic_power_state, mqtt_topic_power_control)
+mqtt_config = MQTTConfig(mqtt_host, mqtt_port, mqtt_client_id, mqtt_user, mqtt_password, mqtt_topic_power_state, mqtt_topic_power_control)
 
 # Loki config
 loki_url = 'https://loki.example.org'

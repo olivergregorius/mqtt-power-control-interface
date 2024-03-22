@@ -46,14 +46,16 @@ class OTAConfig:
 class MQTTConfig:
     host: str
     port: int
+    client_id: str
     username: str
     password: str
     topic_pwr_state: str
     topic_pwr_control: str
 
-    def __init__(self, host, port, username, password, topic_pwr_state, topic_pwr_control):
+    def __init__(self, host, port, client_id, username, password, topic_pwr_state, topic_pwr_control):
         self.host = host
         self.port = port
+        self.client_id = client_id
         self.username = username
         self.password = password
         self.topic_pwr_state = topic_pwr_state
